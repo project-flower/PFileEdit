@@ -1,6 +1,6 @@
 # PFileEdit
 ファイルの属性や日時を編集します。  
-![image](https://user-images.githubusercontent.com/12604087/202845137-e10fdbef-07e0-4149-9c36-dfce4b99df15.png)  
+![image](https://user-images.githubusercontent.com/12604087/203074279-3c2a4acb-598c-42a0-ac79-4915425c6095.png)
 Copyright (C) Project Flower 2022
 
 - 概要:
@@ -42,6 +42,10 @@ Copyright (C) Project Flower 2022
             この属性の変更はサポートしておらず、適用しても属性は更新されません。
         - Hidden
             - 隠しファイルです。したがって通常のディレクトリ リストには表示されません。
+        - NotContentIndexed
+            - オペレーティング システムによるコンテンツ インデックス サービスでインデックスされません。
+        - Offline
+            - オフラインです。 オフラインのファイルのデータは、即時には使用できません。
         - ReadOnly
             - 読み取り専用です。
         - System
