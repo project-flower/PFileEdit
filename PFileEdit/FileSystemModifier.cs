@@ -16,6 +16,8 @@ namespace PFileEdit
             UpdateAttributeFlags(ref attributes, FileAttributes.Compressed, values.Compressed);
             UpdateAttributeFlags(ref attributes, FileAttributes.Encrypted, values.Encrypted);
             UpdateAttributeFlags(ref attributes, FileAttributes.Hidden, values.Hidden);
+            UpdateAttributeFlags(ref attributes, FileAttributes.NotContentIndexed, values.NotContentIndexed);
+            UpdateAttributeFlags(ref attributes, FileAttributes.Offline, values.Offline);
             UpdateAttributeFlags(ref attributes, FileAttributes.ReadOnly, values.ReadOnly);
             UpdateAttributeFlags(ref attributes, FileAttributes.System, values.System);
             fileSystemInfo.Attributes = attributes;

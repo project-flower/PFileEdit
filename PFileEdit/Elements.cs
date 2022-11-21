@@ -37,6 +37,10 @@ namespace PFileEdit
         [Category(CategoryOfDateTime)]
         public DateTime LastWriteTime { get; set; }
         [Category(CategoryOfAttributes)]
+        public bool NotContentIndexed { get; set; }
+        [Category(CategoryOfAttributes)]
+        public bool Offline { get; set; }
+        [Category(CategoryOfAttributes)]
         public bool ReadOnly { get; set; }
         [Category(CategoryOfAttributes)]
         public bool System { get; set; }
@@ -68,6 +72,8 @@ namespace PFileEdit
                 Compressed = attributes.HasFlag(FileAttributes.Compressed);
                 Encrypted = attributes.HasFlag(FileAttributes.Encrypted);
                 Hidden = attributes.HasFlag(FileAttributes.Hidden);
+                NotContentIndexed = attributes.HasFlag(FileAttributes.NotContentIndexed);
+                Offline = attributes.HasFlag(FileAttributes.Offline);
                 ReadOnly = attributes.HasFlag(FileAttributes.ReadOnly);
                 System = attributes.HasFlag(FileAttributes.System);
                 Current = (MemberwiseClone() as Elements);
@@ -127,6 +133,20 @@ namespace PFileEdit
             LastWriteTime = Current.LastWriteTime;
         }
 
+        private void ResetNotContentIndexed()
+        {
+            if (Current == null) return;
+
+            NotContentIndexed = Current.NotContentIndexed;
+        }
+
+        private void ResetOffline()
+        {
+            if (Current == null) return;
+
+            Offline = Current.Offline;
+        }
+
         private void ResetReadOnly()
         {
             if (Current == null) return;
@@ -174,6 +194,16 @@ namespace PFileEdit
         private bool ShouldSerializeLastWriteTime()
         {
             return ((Current == null) || (LastWriteTime != Current.LastWriteTime));
+        }
+
+        private bool ShouldSerializeNotContentIndexed()
+        {
+            return ((Current == null) || (NotContentIndexed != Current.NotContentIndexed));
+        }
+
+        private bool ShouldSerializeOffline()
+        {
+            return ((Current == null) || (Offline != Current.Offline));
         }
 
         private bool ShouldSerializeReadOnly()
